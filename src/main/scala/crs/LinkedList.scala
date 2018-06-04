@@ -68,11 +68,11 @@ object LinkedList {
 
   // checkpoint_03
   def filterƒ(f: Int => Boolean): Algebra[LinkedListF, LinkedList] = {
-    case NilF() => Fix(NilF())
-    case ConsF(e, next) if f(e) => Fix(ConsF(e, next))
-    case ConsF(_, next) => next
+    case NilF()                 => Nil
+    case ConsF(e, next) if f(e) => Cons(e, next)
+    case ConsF(_, next)         => next
   }
 
-  def filter(predicate: Int => Boolean)(list: LinkedList): LinkedList =
+  def filter(list: LinkedList)(predicate: Int => Boolean): LinkedList =
     list.cata(filterƒ(predicate))
 }

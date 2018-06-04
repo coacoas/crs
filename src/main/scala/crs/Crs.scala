@@ -38,7 +38,7 @@ object Crs {
     // checkpoint_03
     println(separator)
     println("Filtered, keeping odd")
-    val filtered = LinkedList.filter(_ % 2 != 0)(list)
+    val filtered = LinkedList.filter(list)(_ % 2 != 0)
 
     println(LinkedList.show(filtered))
   }
