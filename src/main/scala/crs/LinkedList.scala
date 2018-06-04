@@ -40,17 +40,17 @@ object LinkedList {
   def show(list: LinkedList): String =
     (Cord("[") ++ list.cata(showƒ)).shows
 
-  def lengthf: Algebra[LinkedListF, Int] = {
+  def lengthƒ: Algebra[LinkedListF, Int] = {
     case NilF()         => 0
     case ConsF(e, next) => 1 + next
   }
 
-  def length(list: LinkedList): Int = list.cata(lengthf)
+  def length(list: LinkedList): Int = list.cata(lengthƒ)
 
-  def sumf: Algebra[LinkedListF, Int] = {
+  def sumƒ: Algebra[LinkedListF, Int] = {
     case NilF()         => 0
     case ConsF(e, next) => e + next
   }
 
-  def sum(list: LinkedList): Int = list.cata(sumf)
+  def sum(list: LinkedList): Int = list.cata(sumƒ)
 }
