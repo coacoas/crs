@@ -59,8 +59,8 @@ object LinkedList {
 
   // checkpoint_02
   def mapƒ(f: Int => Int): Algebra[LinkedListF, LinkedList] = {
-    case NilF()         => Fix(NilF())
-    case ConsF(e, next) => Fix(ConsF(f(e), next))
+    case NilF()         => Nil
+    case ConsF(e, next) => Cons(f(e), next)
   }
 
   def map(list: LinkedList)(f: Int => Int): LinkedList =
