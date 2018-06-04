@@ -39,4 +39,18 @@ object LinkedList {
 
   def show(list: LinkedList): String =
     (Cord("[") ++ list.cata(showƒ)).shows
+
+  def lengthf: Algebra[LinkedListF, Int] = {
+    case NilF()         => 0
+    case ConsF(e, next) => 1 + next
+  }
+
+  def length(list: LinkedList): Int = list.cata(lengthf)
+
+  def sumf: Algebra[LinkedListF, Int] = {
+    case NilF()         => 0
+    case ConsF(e, next) => e + next
+  }
+
+  def sum(list: LinkedList): Int = list.cata(sumf)
 }

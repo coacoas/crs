@@ -16,5 +16,7 @@ object Crs {
 
     println("List: ")
     println(LinkedList.show(list))
+    println(LinkedList.length(list))
+    println(LinkedList.sum(list))
   }
 }
